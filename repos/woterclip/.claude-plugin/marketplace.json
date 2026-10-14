@@ -1,0 +1,32 @@
+{
+  "name": "woterclip",
+  "owner": {
+    "name": "Alex Kim",
+    "url": "https://github.com/wotai-dev"
+  },
+  "plugins": [
+    {
+      "name": "woterclip",
+      "source": "./",
+      "description": "GitHub Issues-backed agent orchestration with persona-based task routing for Claude Code",
+      "version": "0.3.0",
+      "author": {
+        "name": "Alex Kim"
+      },
+      "category": "automation",
+      "keywords": [
+        "github",
+        "github-issues",
+        "agent",
+        "orchestration",
+        "persona",
+        "heartbeat",
+        "claude-code",
+        "task-routing"
+      ],
+      "homepage": "https://github.com/wotai-dev/woterclip",
+      "repository": "https://github.com/wotai-dev/woterclip",
+      "license": "MIT"
+    }
+  ]
+}

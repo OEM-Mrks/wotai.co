@@ -1,0 +1,9 @@
+.claude/
+.worktrees/
+.env*.local
+*.bak
+
+AGENTS.md
+
+docs/
+CONCEPTS.md

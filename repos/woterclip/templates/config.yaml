@@ -1,0 +1,52 @@
+# WoterClip Configuration
+# Created by /woterclip-init – customize for your repo
+version: 2
+
+# GitHub settings
+github:
+  board_user: "{{USER_NAME}}"        # Board user's GitHub login (used in @-mentions)
+  repo: "{{REPO}}"                   # owner/name — the repo whose issues drive the heartbeat
+
+# Heartbeat behavior
+heartbeat:
+  max_issues_per_heartbeat: 2        # Max issues to work per heartbeat cycle
+  stale_lock_hours: 4                # Hours before a lockfile is considered stale
+
+  # Quiet hours – skip or limit heartbeats during off-hours
+  quiet_hours:
+    enabled: false
+    timezone: "America/Los_Angeles"
+    start: "22:00"
+    end: "07:00"
+    behavior: "skip"                 # "skip" = no heartbeat; "triage-only" = orchestrator triage only
+
+  # Error cooldown – back off on repeated failures
+  # RESERVED: no skill reads these keys yet. Kept for a future failure-backoff
+  # feature; changing them has no effect today. Do not remove without a schema
+  # version bump (see CLAUDE.md editing guidelines).
+  cooldown:
+    max_consecutive_failures: 3      # Pause schedule after N failures
+    backoff_multiplier: 2            # Double interval on consecutive failures
+
+# GitHub label configuration
+# GitHub has no label groups — labels are flat, created by /woterclip-init
+labels:
+  working: "agent-working"           # Applied while agent is working an issue
+  blocked: "agent-blocked"           # Applied when agent is blocked
+
+# Persona routing: GitHub issue label → persona directory
+# The Orchestrator (is_default: true) handles issues with no persona label
+personas:
+  orchestrator:
+    path: "personas/orchestrator"
+    label: null
+    is_default: true
+  ceo:
+    path: "personas/ceo"
+    label: "ceo"
+  backend:
+    path: "personas/backend"
+    label: "backend"
+  frontend:
+    path: "personas/frontend"
+    label: "frontend"
